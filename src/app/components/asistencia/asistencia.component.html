@@ -1,0 +1,33 @@
+<div class="container">
+     <div class="notification">
+        <div class="columns is-desktop half-mobile
+           is-one-quarter-tablet is-half-desktop is-half-widescreen
+           is-half-fullhd">
+
+
+
+           <div class="columns">
+
+              <div class="column ">
+                 <h1 class="title">Lista de Asistencias 10/11/2019</h1>
+                 <table class="table">
+                    <thead>
+                       <tr>
+                          <th><abbr><Strong>#</Strong></abbr></th>
+                          <th><Strong>Id del alumno</Strong></th>
+                          <th><abbr><Strong>Fecha </Strong></abbr></th>
+                       </tr>
+                    </thead>
+                    <tfoot>
+                       <tr *ngFor="let asistencia of asistencias">
+                          <th>{{asistencia.id}} </th>
+                          <th>{{asistencia.id_alumno}}</th>
+                          <th>{{asistencia.date}}</th>
+                          
+
+                       </tr>
+                    </tfoot>
+                 </table>
+              </div>
+           </div>
+        </div>

@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 })
 export class ChatComponent implements OnInit, OnDestroy {
 
-  texto: string;
+  pablito: string;
   mensajesSubscription: Subscription
   mensajes: any[] = [];
   elemento: HTMLElement;
@@ -35,12 +35,12 @@ export class ChatComponent implements OnInit, OnDestroy {
 
 
   enviar() {
-    if (this.texto.trim().length === 0) {
+    if (this.pablito.trim().length === 0) {
       return;
     }
-    console.log(this.texto);
-    this.chatService.sendMessage(this.texto);
-    this.texto = '';
+    console.log(this.pablito);
+    this.chatService.sendMessage(this.pablito);
+    this.pablito = '';
   }
 
 }

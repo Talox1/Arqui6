@@ -1,0 +1,51 @@
+<div class="columns">
+  <div class="column">
+     <table class="table">
+        <thead>
+           <tr>
+              <th><abbr><Strong>#</Strong></abbr></th>
+              <th><Strong>Nombre</Strong></th>
+              <th><abbr><Strong>Matricula</Strong></abbr></th>
+              <th><abbr><Strong>ID RFID</Strong></abbr></th>
+              <th><abbr><Strong>opcion</Strong></abbr></th>
+           </tr>
+        </thead>
+        <tfoot>
+           <tr *ngFor="let alumno of listaAlumnos">
+              <th> {{alumno.id}} </th>
+              <th> {{alumno.name}} </th>
+              <th> {{alumno.matricula}} </th>
+              <th> {{alumno.id_rfid}} </th>
+              <button (click)="selectStudent(this.alumno)" class="button is-warning">Seleccionar</button>
+              
+           </tr>
+        </tfoot>
+     </table>
+  </div>
+
+  <div class="column">
+     <table class="table">
+        <thead>
+           <tr>
+              <th><abbr><Strong>#</Strong></abbr></th>
+              <th><Strong>Numero RFID</Strong></th>
+              
+              <th><abbr><Strong>Status</Strong></abbr></th>
+              <!-- <th><abbr><Strong>Asignado a Alumno</Strong></abbr></th> -->
+              <th><abbr><Strong>Opcion</Strong></abbr></th>
+           </tr>
+        </thead>
+        <tfoot>
+           <tr *ngFor="let rfid of listaRFID">
+              <th> {{rfid.id}} </th>
+              <th> {{rfid.number_rfid}} </th>
+              
+              <th> {{rfid.status}} </th>
+              <!-- <th> false </th> -->
+              <button  (click)="selectRFID(this.rfid)" class="button is-primary">Seleccionar</button>
+
+           </tr>
+        </tfoot>
+     </table>
+  </div>
+</div>
