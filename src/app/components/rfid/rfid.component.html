@@ -43,15 +43,32 @@
                           <input [(ngModel)]="rfidService.selectedRFID.number_RFID" class="input is-primary" type="text"
                              placeholder="Num _ RFID" formControlName="number_RFID">
                           <button type="submit" class="button is-success" style="margin-top:
-                             5px;"> Registrar</button>
+                             5px;"> Registrar y Asignar despues</button>
+                             <br>
+                             <button (click)="openModalStudents()" class="button is-warning">Registrar y Asignar a un alumno</button>
                        </form>
                     </div>
 
                  </div>
-                 <!-- <button class="button is-succes" (click)="enviarMsj()">Enviar msj a socket</button>
-                 <button class="button is-succes" (click)="enviarMsj()">Ejecutar prueba 2</button>
-                 <button class="button is-succes" (click)="enviarMsj()">Ejecutar prueba 3</button>
-                 <button class="button is-succes" (click)="enviarMsj()">Ejecutar prueba 4</button> -->
               </div>
            </div>
         </div>
+
+        <div #modalAsign class="modal">
+         <div class="modal-background"></div>
+         <div class="modal-card">
+           <header class="modal-card-head">
+             <p class="modal-card-title">Nuevo RFID detectado</p>
+             <button class="delete" aria-label="close" (click)="cerrarModal()"></button>
+           </header>
+           <section class="modal-card-body">
+             lista de alumnos disponibles
+           </section>
+           <footer class="modal-card-foot">
+             <button routerLink="/rfid" class="button is-success"(click)="cerrarModal()" >Ir a la vista</button>
+             <button class="button" (click)="cerrarModal()">Cancel</button>
+           </footer>
+         </div>
+       </div>
+      
+       

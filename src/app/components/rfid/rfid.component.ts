@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2, ViewChild, } from '@angular/core';
 import { RFIDService } from '../../services/rfid.service'
 import { RFID } from 'src/app/models/rfid/rfid';
 import { FormGroup, FormBuilder } from '@angular/forms';
@@ -10,6 +10,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./rfid.component.css']
 })
 export class RfidComponent implements OnInit {
+  @ViewChild("modalAsign") modal: ElementRef;
+  
   registerForm: FormGroup;
   rfids:RFID []
 
@@ -21,7 +23,8 @@ export class RfidComponent implements OnInit {
 
   constructor(private rfidService: RFIDService,
     public fb: FormBuilder,
-    private socektService: WebsocketService) {
+    private renderer: Renderer2
+    ) {
 
       
    }
@@ -58,7 +61,7 @@ export class RfidComponent implements OnInit {
   registrarRFID(){
     const params ={
       status:false,
-      // number_rfid:this.rfidService.selectedRFID.number_RFID
+      number_rfid:this.rfidService.selectedRFID.number_RFID
       
     }
     this.rfidService.agregarRFID(params).subscribe(response =>{
@@ -71,5 +74,12 @@ export class RfidComponent implements OnInit {
     this.rfidService.enviarMSJ(msj,'')
   }
 
+  openModalStudents(){
+    this.renderer.addClass(this.modal.nativeElement, "is-active");
+  }
+  cerrarModal(){
+    this.renderer.removeClass(this.modal.nativeElement, "is-active");
+    
+  }
+
 }
-8965
